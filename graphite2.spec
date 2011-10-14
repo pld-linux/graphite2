@@ -1,19 +1,19 @@
 Summary:	Font rendering capabilities for complex non-Roman writing systems
 Name:		graphite2
 Version:	1.0.3
-Release:	0.1
-License:	LGPL v2+ or CPL
+Release:	1
+License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://downloads.sourceforge.net/silgraphite/%{name}/%{name}-%{version}.tgz
+Source0:	http://downloads.sourceforge.net/silgraphite/graphite2/%{name}-%{version}.tgz
 # Source0-md5:	3bf481ca95109b14435125c0dd1f2217
-Patch0:		graphite2-1.0.2-no_harfbuzz_tests.patch
-Patch1:		graphite2-fix_wrong_linker_opts.patch
-Patch2:		graphite2-includes-libs-perl.patch
+Patch0:		%{name}-1.0.2-no_harfbuzz_tests.patch
+Patch1:		%{name}-fix_wrong_linker_opts.patch
+Patch2:		%{name}-includes-libs-perl.patch
 URL:		http://graphite.sil.org/
 BuildRequires:	cmake
-BuildRequires:	silgraphite-devel
 BuildRequires:	glib2-devel
 BuildRequires:	pkgconfig
+BuildRequires:	silgraphite-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -69,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/pango/1.6.0/modules/graphite/*.{a,la}
+/sbin/ldconfig -n $RPM_BUILD_ROOT%{_libdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -79,29 +79,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README
-%attr(755,root,root) %{_libdir}/libgraphite.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgraphite.so.3
-%attr(755,root,root) %{_libdir}/libgraphite-ft.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgraphite-ft.so.0
-%attr(755,root,root) %{_libdir}/libgraphite-xft.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgraphite-xft.so.0
-%dir %{_libdir}/pango/1.6.0/modules/graphite
-%attr(755,root,root) %{_libdir}/pango/1.6.0/modules/graphite/pango-graphite.so
+%doc ChangeLog doc/*.txt
+%attr(755,root,root) %{_bindir}/comparerenderer
+%attr(755,root,root) %{_bindir}/gr2fonttest
+%attr(755,root,root) %{_libdir}/libgraphite2.so.*.*.*
+#%attr(755,root,root) %ghost %{_libdir}/libgraphite2.so.2
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgraphite.so
-%attr(755,root,root) %{_libdir}/libgraphite-ft.so
-%attr(755,root,root) %{_libdir}/libgraphite-xft.so
-%{_libdir}/libgraphite.la
-%{_libdir}/libgraphite-ft.la
-%{_libdir}/libgraphite-xft.la
-%{_includedir}/graphite
+%attr(755,root,root) %{_libdir}/libgraphite2.so
+%{_includedir}/graphite2
 %{_pkgconfigdir}/graphite2.pc
-
-%files static
-%defattr(644,root,root,755)
-%{_libdir}/libgraphite.a
-%{_libdir}/libgraphite-ft.a
-%{_libdir}/libgraphite-xft.a
+%{_datadir}/graphite2
