@@ -1,12 +1,12 @@
 Summary:	Font rendering capabilities for complex non-Roman writing systems
 Summary(pl.UTF-8):	Wsparcie renderowania złożonych systemów pisma nierzymskiego
 Name:		graphite2
-Version:	1.1.3
+Version:	1.2.3
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/silgraphite/%{name}-%{version}.tgz
-# Source0-md5:	cf74634f137ce9e651ec664870611e1a
+# Source0-md5:	7042305e4208af4c2d5249d814ccce58
 Patch0:		%{name}-1.0.2-no_harfbuzz_tests.patch
 Patch1:		%{name}-fix_wrong_linker_opts.patch
 Patch2:		%{name}-includes-libs-perl.patch
@@ -72,8 +72,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-/sbin/ldconfig -n $RPM_BUILD_ROOT%{_libdir}
-
 # cmake's fake (with no dependencies); also obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libgraphite2.la
 
@@ -88,6 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog doc/*.txt
 %attr(755,root,root) %{_bindir}/gr2fonttest
 %attr(755,root,root) %{_libdir}/libgraphite2.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgraphite2.so.3
 
 %files devel
 %defattr(644,root,root,755)
