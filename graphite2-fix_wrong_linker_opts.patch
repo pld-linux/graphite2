@@ -1,11 +1,11 @@
---- graphite2-1.2.3/src/CMakeLists.txt.orig	2013-09-19 15:56:06.709464013 +0200
-+++ graphite2-1.2.3/src/CMakeLists.txt	2013-09-19 15:57:50.726126320 +0200
-@@ -106,9 +106,7 @@
+--- graphite2-1.2.4/src/CMakeLists.txt.orig	2014-02-01 22:21:20.318017527 +0100
++++ graphite2-1.2.4/src/CMakeLists.txt	2014-02-01 22:25:49.254672905 +0100
+@@ -112,9 +112,7 @@
  
  if  (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
      set_target_properties(graphite2 PROPERTIES 
 -        COMPILE_FLAGS   "-Wall -Wextra -Wno-unknown-pragmas -Wendif-labels -Wshadow -Wctor-dtor-privacy -Wnon-virtual-dtor -fno-rtti -fno-exceptions -fvisibility=hidden -fvisibility-inlines-hidden -fno-stack-protector"
--        LINK_FLAGS      "-nodefaultlibs" 
+-        LINK_FLAGS      "-nodefaultlibs ${GRAPHITE_LINK_FLAGS}" 
 -        LINKER_LANGUAGE C)
 +        COMPILE_FLAGS   "-Wall -Wextra -Wno-unknown-pragmas -Wendif-labels -Wshadow -Wctor-dtor-privacy -Wnon-virtual-dtor -fno-rtti -fno-exceptions -fvisibility=hidden -fvisibility-inlines-hidden -fno-stack-protector")
      if (${CMAKE_CXX_COMPILER} MATCHES  ".*mingw.*")

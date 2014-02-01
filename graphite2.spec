@@ -1,12 +1,12 @@
 Summary:	Font rendering capabilities for complex non-Roman writing systems
 Summary(pl.UTF-8):	Wsparcie renderowania złożonych systemów pisma nierzymskiego
 Name:		graphite2
-Version:	1.2.3
+Version:	1.2.4
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/silgraphite/%{name}-%{version}.tgz
-# Source0-md5:	7042305e4208af4c2d5249d814ccce58
+# Source0-md5:	2ef839348fe28e3b923bf8cced440227
 Patch0:		%{name}-1.0.2-no_harfbuzz_tests.patch
 Patch1:		%{name}-fix_wrong_linker_opts.patch
 Patch2:		%{name}-includes-libs-perl.patch
