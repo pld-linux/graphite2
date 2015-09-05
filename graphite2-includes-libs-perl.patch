@@ -1,12 +1,12 @@
---- graphite2-1.1.1/contrib/perl/Build.PL.orig	2012-02-27 05:40:49.000000000 +0100
-+++ graphite2-1.1.1/contrib/perl/Build.PL	2012-03-28 19:13:08.209767728 +0200
+--- graphite2-1.3.1/contrib/perl/Build.PL.orig	2015-09-05 14:48:47.809953840 +0200
++++ graphite2-1.3.1/contrib/perl/Build.PL	2015-09-05 14:51:55.133279315 +0200
 @@ -8,8 +8,8 @@
      dist_author         => 'Simon Cozens <simon@cpan.org>',
      dist_version_from   => 'lib/Text/Gr2.pm',
      extra_compiler_flags => $^O ne 'MSWin32' ? '-Wall -Wno-unused-variable' : '',
 -    extra_linker_flags  => $^O eq 'MSWin32' ? '../../build/src/graphite2.lib' : '-lgraphite2',
--    include_dirs        => ['.'],
-+    extra_linker_flags  => $^O eq 'MSWin32' ? '../../build/src/graphite2.lib' : '-L @BUILD_DIR@ -lgraphite2',
+-    include_dirs        => ['.', '../include'],
++    extra_linker_flags  => $^O eq 'MSWin32' ? '../../build/src/graphite2.lib' : '-L@BUILD_DIR@ -lgraphite2',
 +    include_dirs        => ['.', '../../include'],
      requires => {
          'Test::More' => 0,
