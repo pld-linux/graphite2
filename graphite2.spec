@@ -35,6 +35,7 @@ BuildRequires:	python-setuptools
 %if %{with python3}
 BuildRequires:	python3-devel >= 1:3.2
 BuildRequires:	python3-setuptools
+BuildRequires:	rpmbuild(macros) >= 1.605
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
