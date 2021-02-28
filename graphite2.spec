@@ -15,7 +15,7 @@ Version:	1.3.14
 Release:	1
 License:	LGPL v2.1+ or GPL v2+ or MPL
 Group:		Libraries
-Source0:	http://downloads.sourceforge.net/silgraphite/%{name}-%{version}.tgz
+Source0:	https://downloads.sourceforge.net/silgraphite/%{name}-%{version}.tgz
 # Source0-md5:	1bccb985a7da01092bfb53bb5041e836
 Patch0:		%{name}-fix_wrong_linker_opts.patch
 Patch1:		%{name}-includes-libs-perl.patch
