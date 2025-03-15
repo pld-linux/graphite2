@@ -20,7 +20,7 @@ Source0:	https://downloads.sourceforge.net/silgraphite/%{name}-%{version}.tgz
 Patch0:		%{name}-fix_wrong_linker_opts.patch
 Patch1:		%{name}-includes-libs-perl.patch
 Patch2:		%{name}-python.patch
-URL:		http://graphite.sil.org/
+URL:		https://graphite.sil.org/
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
